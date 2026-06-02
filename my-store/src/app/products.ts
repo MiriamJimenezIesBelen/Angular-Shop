@@ -6,8 +6,26 @@ export interface Product {
   providerId: number;
 }
 
-export const products = [
-  { id: 1, name: 'Phone XL', price: 799, description: 'Big', providerId: 1 },
-  { id: 2, name: 'Phone Mini', price: 699, description: 'Small', providerId: 1 },
-  { id: 3, name: 'Phone Standard', price: 299, description: '', providerId: 2 }
+export const products: Product[] = [
+  {
+    id: 1,
+    name: 'iPhone 16',
+    price: 999,
+    description: 'Apple smartphone',
+    providerId: 1
+  },
+  {
+    id: 2,
+    name: 'Samsung Galaxy S25',
+    price: 899,
+    description: 'Samsung smartphone',
+    providerId: 2
+  },
+  {
+    id: 3,
+    name: 'Google Pixel 9',
+    price: 799,
+    description: 'Google smartphone',
+    providerId: 3
+  }
 ];

@@ -1,0 +1,5 @@
+[
+  { "type": "Standard (5-7 days)", "price": 3.99 },
+  { "type": "Express (2-3 days)",  "price": 7.99 },
+  { "type": "Overnight (1 day)",   "price": 14.99 }
+]

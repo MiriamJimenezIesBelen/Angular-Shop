@@ -1,14 +1,17 @@
 [
   {
     "id": 1,
-    "name": "Phone Provider A",
-    "url": "/providers/1",
-    "products": [1, 2]
+    "name": "Apple",
+    "country": "USA"
   },
   {
     "id": 2,
-    "name": "Phone Provider B",
-    "url": "/providers/2",
-    "products": [3]
+    "name": "Samsung",
+    "country": "South Korea"
+  },
+  {
+    "id": 3,
+    "name": "Google",
+    "country": "USA"
   }
 ]

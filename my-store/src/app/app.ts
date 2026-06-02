@@ -6,6 +6,7 @@ import { TopBar } from './top-bar/top-bar';
   selector: 'app-root',
   standalone: true,
   imports: [RouterOutlet, TopBar, TopBar],
-  templateUrl: './app.html'
+  templateUrl: './app.html',
+  styleUrls: ['./app.css']
 })
 export class App {}

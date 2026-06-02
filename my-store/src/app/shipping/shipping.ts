@@ -6,7 +6,8 @@ import { CartService } from '../cart.service';
   selector: 'app-shipping',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './shipping.html'
+  templateUrl: './shipping.html',
+  styleUrls: ['./shipping.css']
 })
 export class Shipping {
 

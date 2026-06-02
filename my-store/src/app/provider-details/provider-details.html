@@ -1,0 +1,18 @@
+<h2>{{ provider?.name }}</h2>
+
+<p>
+  Country:
+  {{ provider?.country }}
+</p>
+
+<h3>Products</h3>
+
+<div *ngFor="let product of providerProducts">
+
+  <p>
+    {{ product.name }}
+    -
+    {{ product.price | currency }}
+  </p>
+
+</div>

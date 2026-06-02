@@ -9,7 +9,7 @@ describe('CartComponent', () => {
       declarations: [Cart]
     });
 
-    const fixture = TestBed.createComponent(CartComponent);
+    const fixture = TestBed.createComponent(Cart);
     component = fixture.componentInstance;
   });
 

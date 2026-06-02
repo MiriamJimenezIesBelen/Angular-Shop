@@ -1,11 +1,21 @@
-<h2>Product Details</h2>
+<div class="product-details-container">
+  <h2>Product Details</h2>
 
-<div *ngIf="product">
+  <div *ngIf="product">
+    <h3>{{ product.name }}</h3>
+    <h4>{{ product.price | currency }}</h4>
+    <p>{{ product.description }}</p>
 
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
+    <div class="quantity-wrapper">
+      <div class="quantity-counter">
+        <button type="button" class="btn-qty" (click)="decrement()">-</button>
+        <span class="qty-number">{{ quantity }}</span>
+        <button type="button" class="btn-qty" (click)="increment()">+</button>
+      </div>
 
-  <button (click)="addToCart(product)">Buy</button>
-
+      <button type="button" class="buy-button" (click)="addToCart(product)">
+        Buy
+      </button>
+    </div>
+  </div>
 </div>

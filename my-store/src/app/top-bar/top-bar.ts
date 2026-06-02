@@ -5,6 +5,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-top-bar',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './top-bar.html'
+  templateUrl: './top-bar.html',
+  styleUrls: ['./top-bar.css']
 })
 export class TopBar {}
