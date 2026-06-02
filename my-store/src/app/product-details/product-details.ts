@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product, products } from '../products';
-import { CartService } from '../cart';
+import { products, Product } from '../products';
+import { CartService } from '../cart.service';
 import {CurrencyPipe} from '@angular/common';
 
 @Component({
@@ -12,9 +12,9 @@ import {CurrencyPipe} from '@angular/common';
   ],
   styleUrls: ['./product-details.css']
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetails implements OnInit {
 
-  product: Product | undefined;
+  product!: Product | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -22,14 +22,12 @@ export class ProductDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    const routeParams = this.route.snapshot.paramMap;
-    const productId = Number(routeParams.get('productId'));
-
-    this.product = products.find(p => p.id === productId);
+    const id = Number(this.route.snapshot.paramMap.get('productId'));
+    this.product = products.find(p => p.id === id);
   }
 
   addToCart(product: Product) {
     this.cartService.addToCart(product);
-    window.alert('Your product has been added to the cart!');
+    window.alert('Added to cart!');
   }
 }

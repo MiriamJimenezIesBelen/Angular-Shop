@@ -1,6 +1,16 @@
 <h3>Cart</h3>
 
-<div class="cart-item" *ngFor="let item of items">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
+<a routerLink="/shipping">Shipping Prices</a>
+
+<div *ngFor="let item of items">
+  <p>{{ item.name }} - {{ item.price | currency }}</p>
 </div>
+
+<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+
+  <input formControlName="name" placeholder="Name">
+  <input formControlName="address" placeholder="Address">
+
+  <button type="submit">Purchase</button>
+
+</form>

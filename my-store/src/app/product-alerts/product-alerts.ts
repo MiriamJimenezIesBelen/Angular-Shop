@@ -6,8 +6,7 @@ import { Product } from '../products';
   templateUrl: './product-alerts.html',
   styleUrls: ['./product-alerts.css']
 })
-export class ProductAlertsComponent {
-
-  @Input() product: Product | undefined;
-  @Output() notify = new EventEmitter<void>();
+export class ProductAlerts {
+  @Input() product!: Product;
+  @Output() notify = new EventEmitter();
 }

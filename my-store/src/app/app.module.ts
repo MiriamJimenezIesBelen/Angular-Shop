@@ -4,36 +4,35 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
-import { AppComponent } from './app';
-import { TopBarComponent } from './top-bar/top-bar';
-import { ProductListComponent } from './product-list/product-list';
-import { ProductAlertsComponent } from './product-alerts/product-alerts';
-import { ProductDetailsComponent } from './product-details/product-details';
-import { CartComponent } from './cart/cart';
-import { ShippingComponent } from './shipping/shipping';
+import { App } from './app';
+import { TopBar } from './top-bar/top-bar';
+import { ProductList } from './product-list/product-list';
+import { ProductDetails } from './product-details/product-details';
+import { ProductAlerts } from './product-alerts/product-alerts';
+import { Cart } from './cart/cart';
+import { Shipping } from './shipping/shipping';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    TopBarComponent,
-    ProductListComponent,
-    ProductAlertsComponent,
-    ProductDetailsComponent,
-    CartComponent,
-    ShippingComponent
+    App,
+    TopBar,
+    ProductList,
+    ProductDetails,
+    ProductAlerts,
+    Cart,
+    Shipping
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
-      { path: 'products/:productId', component: ProductDetailsComponent },
-      { path: 'cart', component: CartComponent },
-      { path: 'shipping', component: ShippingComponent }
+      { path: '', component: ProductList },
+      { path: 'products/:productId', component: ProductDetails },
+      { path: 'cart', component: Cart },
+      { path: 'shipping', component: Shipping }
     ])
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [App]
 })
 export class AppModule {}

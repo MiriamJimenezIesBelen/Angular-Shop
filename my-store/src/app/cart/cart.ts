@@ -7,7 +7,7 @@ import { CartService } from '../cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent {
+export class Cart {
 
   items = this.cartService.getItems();
 
@@ -21,9 +21,9 @@ export class CartComponent {
     private formBuilder: FormBuilder
   ) {}
 
-  onSubmit(): void {
+  onSubmit() {
     this.items = this.cartService.clearCart();
-    console.warn('Order submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
+    console.warn('Order submitted');
   }
 }
