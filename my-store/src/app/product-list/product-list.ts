@@ -1,25 +1,22 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { products } from '../products';
-import {RouterLink} from '@angular/router';
-import {ProductAlerts} from '../product-alerts/product-alerts';
+import { ProductAlerts } from '../product-alerts/product-alerts';
 
 @Component({
   selector: 'app-product-list',
-  templateUrl: './product-list.html',
-  imports: [
-    RouterLink,
-    ProductAlerts
-  ],
-  styleUrls: ['./product-list.css']
+  standalone: true,
+  imports: [RouterLink, ProductAlerts],
+  templateUrl: './product-list.html'
 })
-export class ProductList{
-  products = [...products];
+export class ProductList {
+  products = products;
 
   share() {
-    window.alert('The product has been shared!');
+    alert('shared');
   }
 
   onNotify() {
-    window.alert('You will be notified when the product goes on sale');
+    alert('notify');
   }
 }

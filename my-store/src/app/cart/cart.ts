@@ -1,29 +1,31 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
 import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
-  templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './cart.html'
 })
 export class Cart {
 
-  items = this.cartService.getItems();
+  items = this.cart.getItems();
 
-  checkoutForm = this.formBuilder.group({
+  checkoutForm = this.fb.group({
     name: '',
     address: ''
   });
 
   constructor(
-    private cartService: CartService,
-    private formBuilder: FormBuilder
+    private cart: CartService,
+    private fb: FormBuilder
   ) {}
 
   onSubmit() {
-    this.items = this.cartService.clearCart();
+    this.items = this.cart.clearCart();
     this.checkoutForm.reset();
-    console.warn('Order submitted');
+    alert('Order submitted');
   }
 }

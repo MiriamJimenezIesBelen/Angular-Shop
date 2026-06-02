@@ -9,8 +9,8 @@ export class CartService {
 
   constructor(private http: HttpClient) {}
 
-  addToCart(product: Product) {
-    this.items.push(product);
+  addToCart(p: Product) {
+    this.items.push(p);
   }
 
   getItems() {

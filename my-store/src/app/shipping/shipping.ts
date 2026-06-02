@@ -1,23 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { CartService } from '../cart.service';
-import {CurrencyPipe} from '@angular/common';
 
 @Component({
   selector: 'app-shipping',
-  templateUrl: './shipping.html',
-  imports: [
-    CurrencyPipe
-  ],
-  styleUrls: ['./shipping.css']
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './shipping.html'
 })
-export class Shipping implements OnInit {
+export class Shipping {
 
-  shippingCosts!: Observable<{type: string, price: number}[]>;
+  private cart = inject(CartService);
 
-  constructor(private cartService: CartService) {}
-
-  ngOnInit() {
-    this.shippingCosts = this.cartService.getShippingPrices();
-  }
+  shippingCosts = this.cart.getShippingPrices();
 }

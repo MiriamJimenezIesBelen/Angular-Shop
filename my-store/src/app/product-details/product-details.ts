@@ -1,33 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { products, Product } from '../products';
 import { CartService } from '../cart.service';
-import {CurrencyPipe} from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-details',
-  templateUrl: './product-details.html',
-  imports: [
-    CurrencyPipe
-  ],
-  styleUrls: ['./product-details.css']
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './product-details.component.html'
 })
-export class ProductDetails implements OnInit {
+export class ProductDetailsComponent {
 
-  product!: Product | undefined;
+  private route = inject(ActivatedRoute);
+  private cart = inject(CartService);
 
-  constructor(
-    private route: ActivatedRoute,
-    private cartService: CartService
-  ) {}
+  product?: Product;
 
-  ngOnInit() {
+  constructor() {
     const id = Number(this.route.snapshot.paramMap.get('productId'));
     this.product = products.find(p => p.id === id);
   }
 
   addToCart(product: Product) {
-    this.cartService.addToCart(product);
-    window.alert('Added to cart!');
+    this.cart.addToCart(product);
+    alert('Added to cart');
   }
 }

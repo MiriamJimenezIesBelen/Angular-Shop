@@ -3,10 +3,11 @@ import { Product } from '../products';
 
 @Component({
   selector: 'app-product-alerts',
-  templateUrl: './product-alerts.html',
-  styleUrls: ['./product-alerts.css']
+  standalone: true,
+  templateUrl: './product-alerts.html'
 })
 export class ProductAlerts {
+
   @Input() product!: Product;
   @Output() notify = new EventEmitter();
 }
