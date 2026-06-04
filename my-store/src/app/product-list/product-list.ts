@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { products } from '../products';
 import { ProductAlerts } from '../product-alerts/product-alerts';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-product-list',
@@ -10,8 +11,13 @@ import { ProductAlerts } from '../product-alerts/product-alerts';
   imports: [CommonModule,RouterLink, ProductAlerts],
   templateUrl: './product-list.html',
   styleUrls: ['./product-list.css']
+
+
 })
+
+
 export class ProductList {
+  constructor(private snackBar: MatSnackBar) {}
   products = products;
 
   share() {

@@ -27,5 +27,22 @@ export const products: Product[] = [
     price: 799,
     description: 'Google smartphone',
     providerId: 3
-  }
+  },
+
+  {
+    id: 4,
+    name: 'Iphone XS',
+    price: 499,
+    description: 'Iphone',
+    providerId: 1
+  },
+
+  {
+    id: 5,
+    name: 'Iphone 15',
+    price: 999,
+    description: 'Iphone',
+    providerId: 1
+  },
+
 ];
