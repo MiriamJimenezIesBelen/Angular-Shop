@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Product } from './products';
 import { HttpClient } from '@angular/common/http';
 
-// Creamos una interfaz extendida para incluir la cantidad de manera limpia
 export interface CartItem extends Product {
   quantity: number;
 }
@@ -14,14 +13,20 @@ export class CartService {
 
   constructor(private http: HttpClient) {}
 
-  // Ahora recibe el producto y la cantidad seleccionada desde los botones (+ / -)
-  addToCart(p: Product, quantity: number) {
+  addToCart(p: Product, quantity: number = 1) {
     const existingItem = this.items.find(item => item.id === p.id);
 
     if (existingItem) {
       existingItem.quantity += quantity;
     } else {
-      this.items.push({ ...p, quantity: quantity });
+      this.items.push({ ...p, quantity });
+    }
+  }
+
+  removeItem(item: CartItem) {
+    const index = this.items.findIndex(i => i.id === item.id);
+    if (index !== -1) {
+      this.items.splice(index, 1);
     }
   }
 

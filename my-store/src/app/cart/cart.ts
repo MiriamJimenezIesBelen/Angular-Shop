@@ -2,18 +2,18 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder } from '@angular/forms';
-import { CartService } from '../cart.service';
+import { CartService, CartItem } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [CommonModule, RouterLink,ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule],
   templateUrl: './cart.html',
   styleUrls: ['./cart.css']
 })
 export class Cart {
 
-  items: any[] = [];
+  items: CartItem[] = [];
 
   checkoutForm;
 
@@ -27,6 +27,20 @@ export class Cart {
       name: [''],
       address: ['']
     });
+  }
+
+  increase(item: CartItem) {
+    item.quantity++;
+  }
+
+  decrease(item: CartItem) {
+    if (item.quantity > 1) {
+      item.quantity--;
+    } else {
+      // Si llega a 0, eliminar del carrito
+      this.cart.removeItem(item);
+      this.items = this.cart.getItems();
+    }
   }
 
   onSubmit() {
